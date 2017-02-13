@@ -1,0 +1,8 @@
+1. Prosta strona z komponentem o strukturze drzewiastej zawierający następujące cechy:
+- Drzewko n-poziomowe
+- Jedna gałąź ma zawierać edytowalne labele(zamieniane na input po kliknięciu): (numeru, opisu, wartości double, oraz 2 przycisków (zeruj wartość) i (wstaw wskażnik)).
+- Gałąź rodzic w polu wartość ma pokazywać sumę wartości jego dzieci.
+- Drzewko ma być edytowalne (można dodać gałąź na każdym poziomie, usunąc i zmodyfikować wartość, która się automatycznie przeliczy u rodziców)
+- Drzewko powinno mieć walidację: (możliwe wpisanie tylko cyfr w numerze itp.),
+- Drzewko nie powinno pozwolić na usunięcie gałęzi jeśli zawiera ono dzieci.
+- Położenie każdej gałęzi można zmienić (zaimplementować jakiś łatwy sposób/ dowolność).
