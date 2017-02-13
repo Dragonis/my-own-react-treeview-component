@@ -10,6 +10,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // load css styles
 import './tree-view.less';
+import TreeViewInformation from './TreeViewInformation';
 
 export default class TreeView extends React.Component {
 
@@ -161,7 +162,7 @@ export default class TreeView extends React.Component {
 			<div key={key} className="node" style={{ marginLeft: (level * p.indent) + 'px' }}>
 				{nodeIcon}
 				{waitIcon}
-				{content}
+				{content} <TreeViewInformation />
 			</div>
 			);
 
@@ -235,6 +236,8 @@ export default class TreeView extends React.Component {
 	 * @return {[type]} [description]
 	 */
 	render() {
+
+
 		const root = this.state ? this.state.root : null;
 
 		if (!root) {
@@ -244,7 +247,8 @@ export default class TreeView extends React.Component {
 			return <i className="fa fa-refresh fa-fw fa-spin" />;
 		}
 
-		return <div className="tree-view">{this.createNodesView(root)}</div>;
+		return <div className="tree-view">{this.createNodesView(root)} </div>  ;
+
 	}
 }
 
