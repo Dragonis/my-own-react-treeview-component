@@ -43,23 +43,14 @@ module.exports = {
         module: {
             loaders: [
                 {
-                    test: /\.jsx/,
+                    test: /\.(js|jsx)$/,
                     loader: 'babel-loader',
                     exclude: /node_modules/,
                     query: {
                         // https://github.com/babel/babel-loader#options
                         cacheDirectory: true,
-                        presets: ['es2015', 'react']
-                    }
-                },
-                {
-                    test: /\.js/,
-                    loader: 'babel-loader',
-                    exclude: /node_modules/,
-                    query: {
-                        // https://github.com/babel/babel-loader#options
-                        cacheDirectory: true,
-                        presets: ['es2015', 'react']
+                        presets: ['es2015', 'react', 'stage-0'],
+                        plugins: ['transform-decorators-legacy']
                     }
                 },
                 {
