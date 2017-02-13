@@ -23,8 +23,9 @@ class TreeViewInformation extends React.Component {
     }
 
     render() {
-        return (<span>
 
+
+        return (<span>
             <InlineEdit
                 validate={this.customValidateText}
                 activeClassName="editing"

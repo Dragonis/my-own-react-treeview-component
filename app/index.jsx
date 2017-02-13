@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TreeView from './tree-view';
+import  { createStore } from 'redux';
+import { connect, Provider } from 'react-redux';
 
 // include babel modules
 import 'babel-core/register';
@@ -8,6 +10,25 @@ import 'babel-core/register';
 // load font awesome
 import 'font-awesome-webpack';
 
+const reducer = function(state,action) {
+    if(action.type === "INC"){
+        return state + action.payload;
+    }
+    if(action.type === "DEC"){
+        return state - action.payload;
+    }
+    return state;
+};
+
+const store = createStore(reducer, 0);
+
+store.subscribe( () => { console.log("store changed", store.getState()) } );
+
+store.dispatch({ type: "INC", payload: 1})
+store.dispatch({ type: "INC", payload: 2})
+store.dispatch({ type: "INC", payload: 22})
+store.dispatch({ type: "INC", payload: 1})
+store.dispatch({ type: "DEC", payload: 1000})
 
 class MainPage extends React.Component {
 
@@ -91,7 +112,23 @@ class MainPage extends React.Component {
 		return res === 1;
 	}
 
+
+
+
+
 	render() {
+
+
+        const reducer = function(state,action) {
+            if(action.type === "INC"){
+                return state + action.payload;
+            }
+            if(action.type === "DEC"){
+                return state - action.payload;
+            }
+            return state;
+        };
+
 		return (
 			<div className="container">
 				<h2>{'Simple Tree View'}</h2>
@@ -117,5 +154,7 @@ class MainPage extends React.Component {
 
 // render the main page
 ReactDOM.render(
-	<MainPage />,
+    <Provider store={store}>
+	<MainPage />
+    </Provider>,
 	document.getElementById('content'));
