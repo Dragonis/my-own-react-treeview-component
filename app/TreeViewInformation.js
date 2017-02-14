@@ -186,10 +186,10 @@ class TreeViewInformation extends React.Component {
                 this.setTotal( this.state.amount * this.refs.multipier.value
                 );  } } >Mnóż</button>
 
-            <label>Suma:</label>
+            <label>{this.props.kind === 'root' ? 'Łącznie:' : 'Suma:'} </label>
            <input type="text" ref="total" value={ this.state.total } style={{  maxWidth: 50 }} />
             <button type="button" onClick={  (e) => { this.setTotal(0); } }>Zeruj</button>
-
+            {this.props.kind}
             </span>)
     }
 

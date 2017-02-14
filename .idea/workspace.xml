@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="af349fd3-0489-461f-96ac-f130f2967e86" name="Default" comment="Mniżenie wartości między sobą, sumowanie i zerowanie  wartości dla każdego  poziomu rozwiniętego drzewa">
+    <list default="true" id="af349fd3-0489-461f-96ac-f130f2967e86" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/TreeViewInformation.js" afterPath="$PROJECT_DIR$/app/TreeViewInformation.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/tree-view.jsx" afterPath="$PROJECT_DIR$/app/tree-view.jsx" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -21,24 +22,14 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tree-view.jsx" pinned="false" current-in-tab="true">
+      <file leaf-file-name="tree-view.jsx" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/tree-view.jsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="167" column="14" lean-forward="true" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
+            <state relative-caret-position="298">
+              <caret line="166" column="82" lean-forward="false" selection-start-line="166" selection-start-column="82" selection-end-line="166" selection-end-column="82" />
               <folding>
                 <element signature="e#251#277#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.jsx" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/index.jsx">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="17">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -53,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TreeViewInformation.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="TreeViewInformation.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/TreeViewInformation.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1540">
-              <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
+            <state relative-caret-position="3094">
+              <caret line="182" column="51" lean-forward="false" selection-start-line="182" selection-start-column="51" selection-end-line="182" selection-end-column="51" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -175,8 +166,8 @@
         <option value="$PROJECT_DIR$/app/tree-view.less" />
         <option value="$PROJECT_DIR$/app/redux/reducers.js" />
         <option value="$PROJECT_DIR$/app/redux/actions.js" />
-        <option value="$PROJECT_DIR$/app/TreeViewInformation.js" />
         <option value="$PROJECT_DIR$/app/tree-view.jsx" />
+        <option value="$PROJECT_DIR$/app/TreeViewInformation.js" />
       </list>
     </option>
   </component>
@@ -192,7 +183,6 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="720" />
     <option name="width" value="720" />
     <option name="height" value="860" />
   </component>
@@ -366,7 +356,7 @@
       <workItem from="1486980457921" duration="9361000" />
       <workItem from="1486993551260" duration="3298000" />
       <workItem from="1487054865627" duration="2006000" />
-      <workItem from="1487056934207" duration="15277000" />
+      <workItem from="1487056934207" duration="17108000" />
     </task>
     <task id="LOCAL-00001" summary="Operowanie na propertisach komponentu #2">
       <created>1487067760797</created>
@@ -382,14 +372,21 @@
       <option name="project" value="LOCAL" />
       <updated>1487070535034</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Wykrywanie poszczegolnych rodzicow od dzieci  w drzewie">
+      <created>1487072362131</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1487072362131</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29942000" />
+    <option name="totallyTimeSpent" value="31773000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="720" y="0" width="720" height="860" extended-state="0" />
+    <frame x="0" y="0" width="720" height="860" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -422,7 +419,8 @@
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Operowanie na propertisach komponentu #2" />
     <MESSAGE value="Mniżenie wartości między sobą, sumowanie i zerowanie  wartości dla każdego  poziomu rozwiniętego drzewa" />
-    <option name="LAST_COMMIT_MESSAGE" value="Mniżenie wartości między sobą, sumowanie i zerowanie  wartości dla każdego  poziomu rozwiniętego drzewa" />
+    <MESSAGE value="Wykrywanie poszczegolnych rodzicow od dzieci  w drzewie" />
+    <option name="LAST_COMMIT_MESSAGE" value="Wykrywanie poszczegolnych rodzicow od dzieci  w drzewie" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -637,14 +635,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/prosta_obsluga_redux.txt" />
-    <entry file="file://$PROJECT_DIR$/app/index.jsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/inne/w razie jakby brakowalo zaleznosci">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -695,22 +685,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/TreeViewInformation.js">
+    <entry file="file://$PROJECT_DIR$/app/index.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1540">
-          <caret line="191" column="0" lean-forward="true" selection-start-line="191" selection-start-column="0" selection-end-line="191" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="17">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/tree-view.jsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="167" column="14" lean-forward="true" selection-start-line="167" selection-start-column="14" selection-end-line="167" selection-end-column="14" />
+        <state relative-caret-position="298">
+          <caret line="166" column="82" lean-forward="false" selection-start-line="166" selection-start-column="82" selection-end-line="166" selection-end-column="82" />
           <folding>
             <element signature="e#251#277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/TreeViewInformation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3094">
+          <caret line="182" column="51" lean-forward="false" selection-start-line="182" selection-start-column="51" selection-end-line="182" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
