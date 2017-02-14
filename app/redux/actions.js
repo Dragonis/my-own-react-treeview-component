@@ -4,7 +4,7 @@ export function setDescription(description){
 }
 
 export function setNumber(number){
-	return { type: "CHANGE_VALUE", payload: number}
+	return { type: "CHANGE_NUMBER", payload: number}
 }
 
 export function setAmount(amount){

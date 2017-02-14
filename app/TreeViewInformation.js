@@ -29,6 +29,7 @@ class TreeViewInformation extends React.Component {
 
     componentWillMount(){
 
+
            /*  this.setState({amount: amount})
              this.props.dispatch(setAmount(amount))*/
 
@@ -176,12 +177,18 @@ class TreeViewInformation extends React.Component {
             {/*  => {this.state.amount}*/}
 
             <label>Mnożnik:</label>
-            <input type="text" placeholder="0.0" name="mnoz" value={ this.state.multipier } style={{  maxWidth: 50 }} />
-            <button type="button" onClick={ (e) => { this.setMultipier("3"); } } >Mnóż</button>
+
+            {/* value={ this.state.multipier } - w tej zmienn je przechowywana jest wartosc wpisana do inputa.*/}
+
+            <input type="text" ref="multipier" style={{  maxWidth: 50 }} />
+            <button type="button" onClick={ (e) => {
+                this.setMultipier(this.refs.multipier.value)
+                this.setTotal( this.state.amount * this.refs.multipier.value
+                );  } } >Mnóż</button>
 
             <label>Suma:</label>
-            <input type="text" placeholder="0" name="zeruj" value={ this.state.total } style={{  maxWidth: 50 }} />
-            <button type="button" onClick={  (e) => { this.setTotal("500"); } }>Zeruj</button>
+           <input type="text" ref="total" value={ this.state.total } style={{  maxWidth: 50 }} />
+            <button type="button" onClick={  (e) => { this.setTotal(0); } }>Zeruj</button>
 
             </span>)
     }

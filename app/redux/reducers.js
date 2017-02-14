@@ -1,11 +1,14 @@
 import  { combineReducers } from 'redux';
 
-export const userReducer = (state = {
-	number: "number",
-	description: "description",
-	amount: "amount",
-	multipier: "0,5",
-	total: "0"}
+export const userReducer = (
+	state =
+	{
+		number: "number",
+		description: "description",
+		amount: 300,
+		multipier: 0.75,
+		total: 500
+	}
 	,action) => {
 
 	switch(action.type) {
@@ -13,7 +16,7 @@ export const userReducer = (state = {
 			state = {...state, description: action.payload} 
 			break; 
 			}
-		case "CHANGE_VALUE": { 
+		case "CHANGE_NUMBER": {
 			state = {...state, number: action.payload}
 			break; 
 			}
