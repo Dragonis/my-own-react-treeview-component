@@ -163,7 +163,7 @@ export default class TreeView extends React.Component {
 			<div key={key} className="node" style={{ marginLeft: (level * p.indent) + 'px' }}>
 				{nodeIcon}
 				{waitIcon}
-				{content} <TreeViewInformation />
+				{content} <TreeViewInformation /> {level ? '*nd leaf' : '1st leaf' }
 			</div>
 			);
 
