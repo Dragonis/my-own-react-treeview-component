@@ -101,22 +101,11 @@ class MainPage extends React.Component {
 
 		return (
 			<div className="container">
-				<h2>{'Simple Tree View'}</h2>
+				<h2>{'Drzewko'}</h2>
 				<TreeView onGetNodes={this.getNodes}
 					innerRender={this.innerNode}
 					checkLeaf={this.checkLeaf} />
 
-				<h2>{'Multiple columns (using Bootstrap grid system)'}</h2>
-				<TreeView onGetNodes={this.getNodes}
-					innerRender={this.innerNode}
-					checkLeaf={this.checkLeaf}
-					outerRender={this.outerNode} />
-
-				<h2>{'Async loading'}</h2>
-				<TreeView onGetNodes={this.getAsyncNodes}
-					innerRender={this.innerNode}
-					outerRender={this.outerNode}
-					checkLeaf={this.checkLeaf} />
 			</div>
 			);
 	}

@@ -121,7 +121,7 @@ class TreeViewInformation extends React.Component {
                 paramName="number"
                 change={this.dataChanged}
                 style={{
-                    backgroundColor: 'yellow',
+                    backgroundColor: 'white',
                     minWidth: 50,
                     maxWidth: 50,
                     display: 'inline-block',
@@ -142,7 +142,7 @@ class TreeViewInformation extends React.Component {
                 paramName="description"
                 change={this.dataChanged}
                 style={{
-                    backgroundColor: 'orange',
+                    backgroundColor: 'white',
                     minWidth: 100,
                     maxWidth: 100,
                     display: 'inline-block',
@@ -163,7 +163,7 @@ class TreeViewInformation extends React.Component {
                 paramName="amount"
                 change={this.dataChanged}
                 style={{
-                    backgroundColor: 'aqua',
+                    backgroundColor: 'white',
                     minWidth: 60,
                     maxWidth: 60,
                     display: 'inline-block',
