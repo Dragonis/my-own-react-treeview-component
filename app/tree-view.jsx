@@ -13,12 +13,27 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import './tree-view.less';
 import TreeViewInformation from './TreeViewInformation';
 
+import { connect } from 'react-redux';
+import store from './redux/store';
+import { setDescription, setValue, setAmount, setMultipier, setTotal, getTreeviewLeaf, addTreeviewLeaf } from './redux/actions';
+
+@connect((store) => {
+    return {
+        user: store.user,
+    };
+})
 export default class TreeView extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		this.state = {
+            tree: this.props.user.tree,
+        }
+
 		this.nodeClick = this.nodeClick.bind(this);
-	}
+
+    }
 
 	/**
 	 * Load the objects that will be linked to the nodes of the tree
@@ -59,6 +74,18 @@ export default class TreeView extends React.Component {
 	 */
 	createNodes(items) {
 		const funcInfo = this.props.checkLeaf;
+
+        this.props.dispatch(addTreeviewLeaf("test",2))
+
+        items.push({name: this.state.tree[0].name, level: this.state.tree[0].level })
+        items.push({name: this.state.tree[1].name, level: this.state.tree[1].level })
+
+
+		console.log(items)
+        //this.props.dispatch(addTreeviewLeaf("abecadlo",2))
+
+
+
 		return items.map(item => {
 			const leaf = funcInfo ? funcInfo(item) : false;
 			return { item: item, state: 'collapsed', children: null, leaf: leaf };
@@ -241,7 +268,6 @@ export default class TreeView extends React.Component {
 
 
 		const root = this.state ? this.state.root : null;
-
 		if (!root) {
 			const self = this;
 			this.loadNodes()
@@ -249,7 +275,9 @@ export default class TreeView extends React.Component {
 			return <i className="fa fa-refresh fa-fw fa-spin" />;
 		}
 
-		return <div className="tree-view">{this.createNodesView(root)} </div>  ;
+		return <div className="tree-view">{this.createNodesView(root)}
+		<button>+ drzewo</button>
+		<button>- drzewo</button></div>  ;
 
 	}
 }

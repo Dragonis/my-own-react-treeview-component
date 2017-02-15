@@ -29,4 +29,12 @@ export function getTotal(){
     return { type: "GET_TOTAL"}
 }
 
+export function addTreeviewLeaf(name, level) {
+    return {type: "ADD_TREEVIEW_LEAF", payload: name}
+}
+
+export function getTreeviewLeaf() {
+    return {type: "GET_TREEVIEW_LEAF"}
+}
+
 

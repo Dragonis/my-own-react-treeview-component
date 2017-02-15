@@ -3,6 +3,16 @@ import  { combineReducers } from 'redux';
 export const userReducer = (
 	state =
 	{
+		tree: [
+			{
+				name: "Pierwsze",
+				level: 2
+			},
+			{
+                name: "Drugie",
+                level: 3
+            }
+		],
 		number: "number",
 		description: "description",
 		amount: 300,
@@ -39,7 +49,20 @@ export const userReducer = (
         case "GET_TOTAL": {
             state = {...state}
             break;
+        } case "ADD_TREEVIEW_LEAF": {
+            state = {
+            	...state,
+                tree: {
+                   name: action.payload,
+				   level: 3
+                }
+			}
+            break;
         }
+        case "GET_TREEVIEW_LEAF": {
+			state = {...state}
+			break;
+		}
 		// default: state = {...state, message: "default-switch"} ; break;
 
 	}

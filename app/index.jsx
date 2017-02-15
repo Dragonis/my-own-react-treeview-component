@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import TreeView from './tree-view';
 import { Provider } from 'react-redux';
@@ -8,14 +8,19 @@ import 'babel-core/register';
 
 // load font awesome
 import 'font-awesome-webpack';
+import {observable} from "mobx"
+import {observer} from "mobx-react"
+import { setDescription, setValue, setAmount, setMultipier, setTotal, addTreeviewLeaf } from './redux/actions';
 
+@observer class MainPage extends React.Component {
 
-class MainPage extends React.Component {
+    @observable drzewo = [];
 
 	constructor(props) {
 		super(props);
-		this.getAsyncNodes = this.getAsyncNodes.bind(this);
-	}
+		this.dodajDrzewo = this.dodajDrzewo.bind(this);
+		this.getNodes= this.getNodes.bind(this);
+    }
 
 	/**
 	 * Return the nodes to be displayed in the tree view. This function is initially called
@@ -25,26 +30,25 @@ class MainPage extends React.Component {
 	 * @return {any}        The list of roots, or a promise object
 	 */
 	getNodes(parent) {
-		const level = parent ? parent.level : 0;
+
+        const level = parent ? parent.level : 0;
 		const pname = parent ? parent.name + '.' : 'Item ';
 
-		const size = Math.floor(Math.random() * 5) + 2;
+		/*const size = Math.floor(Math.random() * 5) + 2;*/
+		// co ile dzieci na tworzyc rodzic, gdy rozwinie sie drzewo/podrzewo rodzica
+		const size = 1;
 
 		const lst = [];
 		for (var i = 1; i <= size; i++) {
 			lst.push({ name: pname + i, level: level + 1 });
 		}
-
+		//console.log("drzewko: " + lst[0].name)
+		this.drzewo = lst;
 		return lst;
 	}
 
 
-	getAsyncNodes(parent) {
-		const self = this;
-		return new Promise(resolve => {
-			setTimeout(() => resolve(self.getNodes(parent)), 1000);
-		});
-	}
+
 
 	/**
 	 * The title to be displayed, or any other composition of react components
@@ -55,27 +59,20 @@ class MainPage extends React.Component {
 		return item.name;
 	}
 
-	/**
-	 * React component that will wrap the node link. It will include 2 columns to be displayed
-	 * using Twitter Bootstrap to make it responsive
-	 * @param  {Component} content 	The react element containing the plus/leaf button and the title
-	 * @param  {object} item    	The object linked to the node (returned by getNodes)
-	 * @return {Component}         	A new component wrapping the given component
-	 */
-	outerNode(content, item) {
-		return (
-			<div key={item.name} className="row" style={{ borderTop: '1px solid #f0f0f0' }}>
-				<div className="col-xs-6">
-					{content}
-				</div>
-				<div className="col-xs-3">
-					{'Column 1'}
-				</div>
-				<div className="col-xs-3">
-					{'Column 2'}
-				</div>
-			</div>
-			);
+
+	dodajDrzewo(){
+		//alert('a')
+
+        console.log( "Rodzic1: " + this.drzewo[0].name )
+		this.drzewo.push( {name: "Wojtek2", level: 1} )
+		this.drzewo.push( {name: "Wojtek3", level: 2} )
+        console.log( "Rodzic2: " + this.drzewo[1].name )
+        console.log( "Rodzic3: " + this.drzewo[2].name )
+
+
+
+        this.forceUpdate()
+		return this.drzewo
 	}
 
 	/**
@@ -105,6 +102,7 @@ class MainPage extends React.Component {
 				<TreeView onGetNodes={this.getNodes}
 					innerRender={this.innerNode}
 					checkLeaf={this.checkLeaf} />
+				<button onClick={  this.dodajDrzewo } > Dodaj drzewo </button>
 
 			</div>
 			);
