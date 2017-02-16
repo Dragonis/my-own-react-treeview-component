@@ -21,11 +21,15 @@ class RootViewTree extends React.Component {
         }
     }
 
+    componentWillMount(){
+
+    }
+
 
     setTotal(total){
-        this.setState({total: total})
-        this.props.dispatch(setTotal(total))
-    }
+    this.setState({total: total})
+    this.props.dispatch(setTotal(total))
+}
 
 
     getTotal(){
@@ -46,12 +50,13 @@ class RootViewTree extends React.Component {
     }
 
 
+
     render() {
         return (
             <span>
-        <label>Łącznie:</label>
-        <input type="text" ref="multipier" value={ this.state.fulltotal } style={{  maxWidth: 50 }} />
-            </span>
+                <label>Łącznie:</label>
+            <input type="text" ref="fulltotal" value={ this.state.fulltotal } style={{  maxWidth: 50 }} />
+    </span>
         );
     }
 }

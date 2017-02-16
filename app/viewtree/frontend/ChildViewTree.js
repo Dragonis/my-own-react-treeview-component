@@ -28,6 +28,28 @@ class MultipierContainer extends React.Component {
     setMultipier(multipier){
         this.setState({multipier: multipier})
         this.props.dispatch(setMultipier(multipier))
+        setFullTotal(1000)
+        /* console.log(getFullTotal())
+
+        setFullTotal(1000)
+        console.log(getFullTotal())*/
+      /*  this.setState({ fulltotal: 1000})
+        this.props.dispatch(setFullTotal(1000))
+        console.log(store.getState().user.fulltotal)
+*/
+    }
+
+
+    setFullTotal(fulltotal){
+        this.setState({fulltotal: fulltotal})
+        this.props.dispatch(setFullTotal(fulltotal))
+        this.refs.fulltotal.value = fulltotal
+
+    }
+
+    getFullTotal(){
+        const fulltotal = store.getState().user.fulltotal
+        return Fulltotal
     }
 
     setTotal(total){
@@ -38,6 +60,7 @@ class MultipierContainer extends React.Component {
     getMultipier(){
         let multipier = store.getState().user.multipier
         console.log(multipier)
+
         return multipier
     }
 

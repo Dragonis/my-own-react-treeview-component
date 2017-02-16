@@ -183,10 +183,13 @@ export default class TreeView extends React.Component {
 		let lst = this.state.root;
 		let node = null;
 
+		let index_total = 0
 		key.split('.').forEach(index => {
 			node = lst[Number(index)];
 			lst = node.children;
+			index_total = index_total + index
 		});
+		console.log("index: " + index_total)
 
 		if (node.state === 'collapsed') {
 			this.expandNode(node);
