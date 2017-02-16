@@ -30,3 +30,10 @@ export function getTotal(){
 }
 
 
+export function getFullTotal(){
+    return { type: "GET_FULL_TOTAL"}
+}
+
+export function setFullTotal(fulltotal){
+    return { type: "SET_FULL_TOTAL", payload: fulltotal}
+}

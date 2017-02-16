@@ -1,9 +1,10 @@
 import React from 'react';
 import InlineEdit from '../node_modules/react-edit-inline/index';
-import actions from './redux/actions';
 import { connect } from 'react-redux';
 import store from './redux/store';
-import { setDescription, setValue, setAmount, setMultipier, setTotal } from './redux/actions';
+import { setDescription, setValue, setAmount, setMultipier, setTotal, setFullTotal, getFullTotal } from './redux/actions';
+import  ChildViewTree  from './ChildViewTree'
+import  RootViewTree  from './RootViewTree'
 
 @connect((store) => {
     return {
@@ -22,13 +23,17 @@ class TreeViewInformation extends React.Component {
             amount: this.props.user.amount,
             multipier: this.props.user.multipier,
             total: this.props.user.total,
-
+            fulltotal: this.props.user.fulltotal,
         }
 
     }
 
     componentWillMount(){
 
+
+
+        this.props.dispatch(getFullTotal())
+        this.setState( { fulltotal: this.state.total * 3 } )
 
            /*  this.setState({amount: amount})
              this.props.dispatch(setAmount(amount))*/
@@ -99,12 +104,14 @@ class TreeViewInformation extends React.Component {
         }*/
 
         console.log(store.getState())
-        
+
     }
 
     customValidateText(text) {
         return (text.length > 0 && text.length < 64);
     }
+
+
 
    render() {
 //setName('abecadlo')
@@ -112,7 +119,9 @@ class TreeViewInformation extends React.Component {
       /* console.log(this.props.user)*/
 
 
+
         return (<span>
+
             {/* Number Inline Edit Component */}
             <InlineEdit
                 validate={this.customValidateText}
@@ -176,20 +185,11 @@ class TreeViewInformation extends React.Component {
             />
             {/*  => {this.state.amount}*/}
 
-            <label>Mnożnik:</label>
 
-            {/* value={ this.state.multipier } - w tej zmienn je przechowywana jest wartosc wpisana do inputa.*/}
 
-            <input type="text" ref="multipier" style={{  maxWidth: 50 }} />
-            <button type="button" onClick={ (e) => {
-                this.setMultipier(this.refs.multipier.value)
-                this.setTotal( this.state.amount * this.refs.multipier.value
-                );  } } >Mnóż</button>
+            {this.props.kind === 'root' ?  <RootViewTree/> : ''}
+            {this.props.kind === 'leaf' ?  <ChildViewTree/> : ''}
 
-            <label>{this.props.kind === 'root' ? 'Łącznie:' : 'Suma:'} </label>
-           <input type="text" ref="total" value={ this.state.total } style={{  maxWidth: 50 }} />
-            <button type="button" onClick={  (e) => { this.setTotal(0); } }>Zeruj</button>
-            {this.props.kind}
             </span>)
     }
 

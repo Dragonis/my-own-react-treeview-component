@@ -15,6 +15,7 @@ class MainPage extends React.Component {
 	constructor(props) {
 		super(props);
 		this.getAsyncNodes = this.getAsyncNodes.bind(this);
+
 	}
 
 	/**
@@ -55,28 +56,6 @@ class MainPage extends React.Component {
 		return item.name;
 	}
 
-	/**
-	 * React component that will wrap the node link. It will include 2 columns to be displayed
-	 * using Twitter Bootstrap to make it responsive
-	 * @param  {Component} content 	The react element containing the plus/leaf button and the title
-	 * @param  {object} item    	The object linked to the node (returned by getNodes)
-	 * @return {Component}         	A new component wrapping the given component
-	 */
-	outerNode(content, item) {
-		return (
-			<div key={item.name} className="row" style={{ borderTop: '1px solid #f0f0f0' }}>
-				<div className="col-xs-6">
-					{content}
-				</div>
-				<div className="col-xs-3">
-					{'Column 1'}
-				</div>
-				<div className="col-xs-3">
-					{'Column 2'}
-				</div>
-			</div>
-			);
-	}
 
 	/**
 	 * Inform the tree if the node is a leaf, i.e, if the node has no other children

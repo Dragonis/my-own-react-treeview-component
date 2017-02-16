@@ -7,7 +7,8 @@ export const userReducer = (
 		description: "description",
 		amount: 300,
 		multipier: 0.75,
-		total: 500
+		total: 500,
+		fulltotal: 800
 	}
 	,action) => {
 
@@ -37,6 +38,14 @@ export const userReducer = (
             break;
         }
         case "GET_TOTAL": {
+            state = {...state}
+            break;
+        }
+        case "SET_FULL_TOTAL": {
+            state = {...state, fulltotal: action.payload}
+            break;
+        }
+        case "GET_FULL_TOTAL": {
             state = {...state}
             break;
         }

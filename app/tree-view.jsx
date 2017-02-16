@@ -18,6 +18,7 @@ export default class TreeView extends React.Component {
 	constructor(props) {
 		super(props);
 		this.nodeClick = this.nodeClick.bind(this);
+
 	}
 
 	/**
