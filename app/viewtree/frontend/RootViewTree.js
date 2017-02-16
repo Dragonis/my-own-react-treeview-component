@@ -21,16 +21,10 @@ class RootViewTree extends React.Component {
         }
     }
 
-    componentWillMount(){
-
-    }
-
-
     setTotal(total){
-    this.setState({total: total})
-    this.props.dispatch(setTotal(total))
-}
-
+        this.setState({total: total})
+        this.props.dispatch(setTotal(total))
+    }
 
     getTotal(){
         let total = store.getState().user.total
@@ -39,24 +33,17 @@ class RootViewTree extends React.Component {
     }
 
     dataChanged(data) {
-
         console.log(data)
-
         let total = data.total
-
-
         console.log(store.getState())
-
     }
-
-
 
     render() {
         return (
             <span>
                 <label>Łącznie:</label>
-            <input type="text" ref="fulltotal" value={ this.state.fulltotal } style={{  maxWidth: 50 }} />
-    </span>
+                <input type="text" ref="fulltotal" value={ this.state.fulltotal } style={{  maxWidth: 50 }} />
+            </span>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import store from '../../redux/store';
-import { setDescription, setValue, setAmount, setMultipier, setTotal, setFullTotal, getFullTotal } from '../../redux/actions';
+import { setValue } from '../../redux/actions';
 import InlineEdit from '../../../node_modules/react-edit-inline/index';
 
 
@@ -15,25 +15,18 @@ class EditableViewTree extends React.Component {
         super(props);
         this.dataChanged = this.dataChanged.bind(this);
         this.state = {
-            // pole komponentowe : pole w store
             number: this.props.user.number,
             description: this.props.user.description,
             amount: this.props.user.amount,
-
         }
-
     }
 
-
     dataChanged(data) {
-        // data = { description: "New validated text comes here" }
-        // Update your model from here
         console.log(data)
 
         let number = data.number
         let description = data.description
         let amount = data.amount
-
 
         if(number != undefined){
             // ustaw dane dla żródła prawdy
@@ -48,7 +41,6 @@ class EditableViewTree extends React.Component {
             this.setState({amount: amount })
             //this.props.dispatch(setAmount(amount))
         }
-
 
         console.log(store.getState())
 

@@ -118,7 +118,7 @@ class MultipierContainer extends React.Component {
                   <label>{this.props.kind === 'root' ? 'Łącznie:' : 'Suma:'} </label>
            <input type="text" ref="total" value={ this.state.total } style={{  maxWidth: 50 }} />
             <button type="button" onClick={ (e) => { this.setTotal(0); }   }>Zeruj</button>
-
+                {this.props.data}
             </span>
         );
     }

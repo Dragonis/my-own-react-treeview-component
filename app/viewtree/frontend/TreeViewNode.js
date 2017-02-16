@@ -5,13 +5,23 @@ import EditableViewTree from './EditableViewTree'
 
 class TreeViewInformation extends React.Component {
 
+    constructor(props){
+        super(props);
+        this.state = {
+            data: 5
+        }
+    }
+
    render() {
         return (
             <span>
             <EditableViewTree/>
-            {this.props.kind === 'root' ?  <RootViewTree  /> : ''}
-            {this.props.kind === 'leaf' ?  <ChildViewTree /> : ''}
-            </span>)
+            {this.props.kind === 'root' ?
+                <RootViewTree /> : ''}
+            {this.props.kind === 'leaf' ?
+                <ChildViewTree /> : ''}
+            </span>
+        )
     }
 }
 
