@@ -11,7 +11,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // load css styles
 import './tree-view.less';
-import TreeViewInformation from './TreeViewInformation';
+import TreeViewInformation from '../frontend/TreeViewNode';
 
 export default class TreeView extends React.Component {
 

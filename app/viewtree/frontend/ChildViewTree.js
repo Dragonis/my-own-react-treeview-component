@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import store from './redux/store';
-import { setDescription, setValue, setAmount, setMultipier, setTotal, setFullTotal, getFullTotal } from './redux/actions';
+import store from '../../redux/store';
+import { setDescription, setValue, setAmount, setMultipier, setTotal, setFullTotal, getFullTotal } from '../../redux/actions';
 
 
 @connect((store) => {

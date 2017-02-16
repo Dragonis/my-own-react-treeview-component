@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import TreeView from './tree-view';
+import TreeView from './viewtree/backend/tree-view';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 // include babel modules
