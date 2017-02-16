@@ -37,3 +37,12 @@ export function getFullTotal(){
 export function setFullTotal(fulltotal){
     return { type: "SET_FULL_TOTAL", payload: fulltotal}
 }
+
+export function getNumberChildrensFromStore(){
+    return { type: "GET_NUMBER_CHILDS"}
+}
+
+export function setNumberChildrensToStore(number){
+    return { type: "SET_NUMBER_CHILDS", payload: number}
+}
+

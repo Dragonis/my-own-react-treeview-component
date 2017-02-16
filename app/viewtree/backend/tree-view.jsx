@@ -6,22 +6,38 @@
  */
 
 import React from 'react';
-
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
-
 // load css styles
 import './tree-view.less';
 import TreeViewInformation from '../frontend/TreeViewNode';
+import { connect } from 'react-redux';
+import store from '../../redux/store';
+import { setNumberChildrensToStore, getNumberChildrensFromStore } from '../../redux/actions';
 
+@connect((store) => {
+    return {
+        user: store.user,
+    };
+})
 export default class TreeView extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.nodeClick = this.nodeClick.bind(this);
-
+		this.state = {
+            numberchilds: this.props.user.numberchilds,
+        }
 	}
 
-	/**
+    setNumberChildrens(numberchilds) {
+        console.log("Liczba wyswietlanych nodów: " + numberchilds);
+        this.state.numberchilds = numberchilds;
+        this.props.dispatch(setNumberChildrensToStore(numberchilds))
+    }
+
+
+
+    /**
 	 * Load the objects that will be linked to the nodes of the tree
 	 * @param  {object} parent The parent node to load items into
 	 */
@@ -31,7 +47,6 @@ export default class TreeView extends React.Component {
 		if (!func) {
 			return null;
 		}
-
 		const pitem = parent ? parent.item : undefined;
 		let res = func(pitem);
 
@@ -41,17 +56,22 @@ export default class TreeView extends React.Component {
 			res = Promise.resolve(res);
 		}
 
-		// create nodes wrapper when nodes are resolved
-		const self = this;
-		return res.then(items => {
-			if (!items) {
-				return [];
-			}
+        // create nodes wrapper when nodes are resolved
+        const self = this;
+        return res.then(items => {
+            if (!items) {
+                return [];
+            }
+            this.setNumberChildrens(Object.keys(items).length);
 
-			const nodes = self.createNodes(items);
-			return nodes;
-		});
-	}
+            const nodes = self.createNodes(items);
+            return nodes;
+        });
+    }
+
+
+
+
 
 	/**
 	 * Create nodes from the list of items to add in the tree

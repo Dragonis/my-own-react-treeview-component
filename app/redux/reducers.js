@@ -1,14 +1,17 @@
 import  { combineReducers } from 'redux';
 
+
+
 export const userReducer = (
 	state =
 	{
-		number: "number",
-		description: "description",
+		number: "Numer",
+		description: "Opis",
 		amount: 300,
-		multipier: 0.75,
-		total: 500,
-		fulltotal: 800
+		multipier: 2,
+		total: 0,
+		fulltotal: 0,
+        numberchilds: 10
 	}
 	,action) => {
 
@@ -46,6 +49,14 @@ export const userReducer = (
             break;
         }
         case "GET_FULL_TOTAL": {
+            state = {...state}
+            break;
+        }
+        case "SET_NUMBER_CHILDS": {
+            state = {...state, numberchilds: action.payload}
+            break;
+        }
+        case "GET_NUMBER_CHILDS": {
             state = {...state}
             break;
         }

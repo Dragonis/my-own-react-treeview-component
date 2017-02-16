@@ -27,7 +27,7 @@ class MainPage extends React.Component {
 	 */
 	getNodes(parent) {
 		const level = parent ? parent.level : 0;
-		const pname = parent ? parent.name + '.' : 'Item ';
+		const pname = parent ? parent.name + '.' : 'Węzęł nr:  ';
 
 		const size = Math.floor(Math.random() * 5) + 2;
 
