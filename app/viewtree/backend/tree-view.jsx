@@ -9,7 +9,7 @@ import React from 'react';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 // load css styles
 import './tree-view.less';
-import TreeViewInformation from '../frontend/TreeViewNode';
+import TreeViewInformation from '../frontend/TreeView';
 import { connect } from 'react-redux';
 import store from '../../redux/store';
 import { setNumberChildrensToStore, getNumberChildrensFromStore } from '../../redux/actions';

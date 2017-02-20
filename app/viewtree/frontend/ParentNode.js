@@ -24,6 +24,7 @@ class RootViewTree extends React.Component {
             fulltotal: this.props.user.fulltotal,
         }
     }
+
     dataChanged(data) {
         console.log(data)
 
@@ -39,7 +40,6 @@ class RootViewTree extends React.Component {
             this.setState({description: description })
             //this.props.dispatch(setDescription(description))
         }
-
 
         console.log(store.getState())
 
@@ -60,17 +60,10 @@ class RootViewTree extends React.Component {
         return total
     }
 
-    // aktualizuje wartosc stanu, w momencie gdy inny komponent bedzie chcial ta zmienna zaktualizowac
     componentWillReceiveProps(){
         this.setState({fulltotal: store.getState().user.fulltotal})
         setFullTotal(this.state.fulltotal)
 
-    }
-
-    dataChanged(data) {
-        console.log(data)
-        let total = data.total
-        console.log(store.getState())
     }
 
     render() {

@@ -17,8 +17,6 @@ class MultipierContainer extends React.Component {
         this.handleChange = this.handleChange.bind(this);
 
         this.state = {
-            // pole komponentowe : pole w store
-
             number: this.props.user.number,
             description: this.props.user.description,
             amount: this.props.user.amount,
@@ -28,6 +26,7 @@ class MultipierContainer extends React.Component {
             numberchilds: this.props.user.numberchilds
         }
     }
+
     dataChanged(data) {
         console.log(data)
 
@@ -59,26 +58,21 @@ class MultipierContainer extends React.Component {
 
     setMultipier(multipier){
 
+        let output = this.state.total * this.state.numberchilds
+
+        this.setFullTotal(output)
+        this.props.dispatch(setFullTotal(output))
+
         this.setState({multipier: multipier})
         this.props.dispatch(setMultipier(multipier))
 
-        this.setFullTotal(this.state.total * this.state.numberchilds)
-        /* console.log(getFullTotal())
-
-        setFullTotal(1000)
-        console.log(getFullTotal())*/
-      /*  this.setState({ fulltotal: 1000})
-        this.props.dispatch(setFullTotal(1000))
-        console.log(store.getState().user.fulltotal)
-*/
+        console.log("Łącznie: " + output)
     }
 
     setFullTotal(fulltotal) {
         this.setState({fulltotal: fulltotal});
         this.props.dispatch(setFullTotal(fulltotal))
     }
-
-
 
     getFullTotal(){
         let fulltotal = store.getState().user.fulltotal
@@ -128,10 +122,7 @@ class MultipierContainer extends React.Component {
             this.setState({amount: amount })
             this.props.dispatch(setAmount(amount))
         }
-
-
         console.log(store.getState())
-
     }
 
     handleChange(event) {
@@ -208,16 +199,24 @@ class MultipierContainer extends React.Component {
 
                             <label>Mnożnik:</label>
         <input type="number" step="0.1" ref="multipier" value={ this.state.multipier }   onChange={this.handleChange} style={{  maxWidth: 50 }} />
-        <button type="button" onClick={ (e) => {
-            this.setMultipier(this.refs.multipier.value)
-            let output = this.state.amount * this.refs.multipier.value
-            this.setTotal( output
-            );  } } >Mnóż</button>
+        <button type="button" onClick=
+         {
+            (e) =>
+            {
+                this.setMultipier(this.refs.multipier.value)
+                let output = this.state.amount * this.refs.multipier.value
+                this.setTotal( output );
+            }
+        } >Mnóż</button>
 
-                  <label>{this.props.kind === 'root' ? 'Łącznie:' : 'Suma:'} </label>
-           <input type="text" ref="total" value={ this.state.total } style={{  maxWidth: 50 }} />
-            <button type="button" onClick={ (e) => { this.setTotal(0); }   }>Zeruj</button>
-                {this.props.data}
+            <label>{this.props.kind === 'root' ? 'Łącznie:' : 'Suma:'} </label>
+            <input type="text" ref="total" value={ this.state.total } style={{  maxWidth: 50 }} />
+            <button type="button" onClick={
+                (e) =>
+                    {
+                        this.setTotal(0);
+                    }   }> Zeruj </button>
+            {this.props.data}
             </span>
         );
     }

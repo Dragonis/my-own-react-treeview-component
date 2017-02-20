@@ -93,6 +93,6 @@ class MainPage extends React.Component {
 // render the main page
 ReactDOM.render(
     <Provider store={store}>
-	<MainPage />
+		<MainPage />
     </Provider>,
 	document.getElementById('content'));
